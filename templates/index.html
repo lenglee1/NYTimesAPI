@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title> NYT shit </title>
+		<link href="{{ url_for('static', filename='style.css') }}" />
+	</head>
+
+
+
+<!--Visible stuff goes here -->
+	<body>
+
+	<!--Header-->
+	<div class="header">
+		<div class="container">
+			<h1> List of Most Sent NYT Sports Articles in last 30 days </h1>
+		</div>
+	</div>
+
+
+
+	<!--Main-->
+	<div class="main">
+		<div class="container">
+
+			<ul>
+				{% for article in articles %}
+					<li><b> <a href='{{article['url']}}'> {{ article['title']}}</b> </a></li>
+					<li> {{ article['abstract']}} </li>
+					<li> {{ article['byline']}} </li>
+					<img src= "{{article['media'][0]['media-metadata'][1]['url']}}">
+					</br></br>
+
+				{% endfor %}
+			</ul>
+
+
+
+
+
+
+		</div>
+	</div>
+
+
+
+	<!--Footer-->
+
+	<div class="main">
+		<div class="container">
+			<p> Contact us </p>
+		</div>
+	</div>
+
+
+
+	</body>
+</html>
